@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>LIST RUMAHSAKIT</h1>
+    <h1>LIST PENDAFTAR</h1>
     
 <div class="container">
     <table class="table">
@@ -10,27 +10,29 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nama</th>
-                <th scope="col">Alamat</th>
-                <th scope="col">Daerah</th>
+                <th scope="col">NIK</th>
+                <th scope="col">Email</th>
                 <th scope="col">No Telpon</th>
-                <th scope="col">Provinsi</th>
+                <th scope="col">Tanggal Lahir</th>
+                <th scope="col">Riwayat Penyakit</th>
             </tr>
         </thead>
         <tbody>
             @php
                 $no = 0;
             @endphp
-            @foreach ($data as $datas)
+            @foreach ($vaksin as $vaksins)
             @php
                 $no++;
             @endphp
             <tr>
                 <th scope="row">{{$no;}}</th>
-                <td>{{ $datas['name'] }}</td>
-                <td>{{ $datas['address'] }}</td>
-                <td>{{ $datas['region'] }}</td>
-                <td>{{ $datas['phone'] }}</td>
-                <td>{{ $datas['province'] }}</td>
+                <td>{{ $vaksins['nama'] }}</td>
+                <td>{{ $vaksins['nik'] }}</td>
+                <td>{{ $vaksins['email'] }}</td>
+                <td>{{ $vaksins['no_telp'] }}</td>
+                <td>{{ $vaksins['tgl_lahir'] }}</td>
+                <td>{{ $vaksins['riwayat_penyakit'] }}</td>
             </tr>    
             @endforeach
         </tbody>

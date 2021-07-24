@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+
     <h1>LIST STATISTIK</h1>
-    </div>
+
 <div class="container">
     <table class="table">
         <thead>

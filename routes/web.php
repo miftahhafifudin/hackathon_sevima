@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\infoController;
+use App\Http\Controllers\VaksinController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,5 @@ Route::get('/', function () {
 Route::get('/statistik', [infoController::class, 'index']);
 Route::get('/rumahsakit', [infoController::class, 'index2']);
 
+Route::get('/vaksin', [VaksinController::class, 'index'])->name('vaksin');
+Route::post('/vaksin', [VaksinController::class, 'store']);
