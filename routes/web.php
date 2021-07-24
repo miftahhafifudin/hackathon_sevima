@@ -17,8 +17,9 @@ use App\Http\Controllers\infoController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Auth::routes();
 
 Route::get('/', [infoController::class, 'index']);
-Auth::routes();
+Route::get('/rumahsakit', [infoController::class, 'index2']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

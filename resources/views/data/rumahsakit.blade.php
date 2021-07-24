@@ -14,26 +14,28 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Alamat</th>
+                    <th scope="col">Daerah</th>
+                    <th scope="col">No Telpon</th>
                     <th scope="col">Provinsi</th>
-                    <th scope="col">Positif</th>
-                    <th scope="col">Kasus Sembuh</th>
-                    <th scope="col">Kasus Meniggal</th>
                 </tr>
             </thead>
-            @php
-                $no = 0;
-            @endphp
             <tbody>
+                @php
+                    $no = 0;
+                @endphp
+                @foreach ($data as $datas)
                 @php
                     $no++;
                 @endphp
-                @foreach ($data as $datas)
                 <tr>
                     <th scope="row">{{$no;}}</th>
-                    <td>{{ $datas['attributes']['Provinsi'] }}</td>
-                    <td>{{ $datas['attributes']['Kasus_Posi'] }}</td>
-                    <td>{{ $datas['attributes']['Kasus_Semb'] }}</td>
-                    <td>{{ $datas['attributes']['Kasus_Meni'] }}</td>
+                    <td>{{ $datas['name'] }}</td>
+                    <td>{{ $datas['address'] }}</td>
+                    <td>{{ $datas['region'] }}</td>
+                    <td>{{ $datas['phone'] }}</td>
+                    <td>{{ $datas['province'] }}</td>
                 </tr>    
                 @endforeach
             </tbody>
