@@ -1,43 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <h1>LIST PENDAFTAR</h1>
-    
-<div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nama</th>
-                <th scope="col">NIK</th>
-                <th scope="col">Email</th>
-                <th scope="col">No Telpon</th>
-                <th scope="col">Tanggal Lahir</th>
-                <th scope="col">Riwayat Penyakit</th>
-            </tr>
-        </thead>
-        <tbody>
-            @php
-                $no = 0;
-            @endphp
-            @foreach ($vaksin as $vaksins)
-            @php
-                $no++;
-            @endphp
-            <tr>
-                <th scope="row">{{$no;}}</th>
-                <td>{{ $vaksins['nama'] }}</td>
-                <td>{{ $vaksins['nik'] }}</td>
-                <td>{{ $vaksins['email'] }}</td>
-                <td>{{ $vaksins['no_telp'] }}</td>
-                <td>{{ $vaksins['tgl_lahir'] }}</td>
-                <td>{{ $vaksins['riwayat_penyakit'] }}</td>
-            </tr>    
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
             @endforeach
-        </tbody>
-    </table>
-</div>
-@endsection
+        </ul>
+    </div>
+    @endif
     
-
+    <form action="{{route('vaksin')}}" method="POST" class="mb-4">
+        @csrf
+        <div class="form-group">
+            <label for="nik">NIK</label>
+            <input type="text" name="nik" class="form-control" id="nik" placeholder="Masukkan nik">
+        </div>
+        <div class="form-group">
+            <label for="nama">Nama</label>
+            <input type="text" name="nama" class="form-control" id="nama" placeholder="Masukkan Nama">
+        </div>
+        <div class="form-group">
+            <label for="no_telp">Nomer Telepon</label>
+            <input type="text" name="no_telp" class="form-control" id="no_telp" placeholder="Masukkan no_telp">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" class="form-control" id="email" placeholder="Masukkan email">
+        </div>
+        <div class="form-group">
+            <label for="tgl_lahir">Tanggal Lahir</label>
+            <input type="date" name="tgl_lahir" class="form-control" id="tgl_lahir" placeholder="Masukkan umur">
+        </div>
+        <div class="form-group">
+            <label for="riwayat_penyakit">Riwayat Penyakit</label>
+            <input type="text" name="riwayat_penyakit" class="form-control" id="riwayat_penyakit" placeholder="Masukkan riwayat">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+@endsection

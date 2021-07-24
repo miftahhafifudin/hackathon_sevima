@@ -53,7 +53,7 @@ class VaksinController extends Controller
 
             $vaksin = Vaksin::create($request->all());
             
-            return view('home');
+            return view('vaksin.show');
     }
 
     /**
@@ -64,7 +64,8 @@ class VaksinController extends Controller
      */
     public function show(Vaksin $vaksin)
     {
-        //
+        $vaksin = Vaksin::orderby('created_at','desc')->paginate(10); 
+        return view('vaksin.show')->with('vaksin', $vaksin);
     }
 
     /**
@@ -85,7 +86,7 @@ class VaksinController extends Controller
      * @param  \App\Models\Vaksin  $vaksin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function put(Request $request, $id)
     {
         
         $validated = $request->validate([
@@ -102,15 +103,23 @@ class VaksinController extends Controller
             return view('home');
     }
 
+    public function update($vaksin)
+    {
+        $vaksins = Vaksin::find($vaksin);
+        return view('vaksin.update', [
+            'vaksins' => $vaksins
+            ]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Vaksin  $vaksin
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($vaksin)
     {
-        $vaksin = Vaksin::find($id);
-        $vaksin->delete();
+        $vaksins = Vaksin::find($vaksin);
+        $vaksins->delete();
     }
 }

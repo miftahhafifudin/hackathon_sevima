@@ -25,4 +25,8 @@ Route::get('/statistik', [infoController::class, 'index']);
 Route::get('/rumahsakit', [infoController::class, 'index2']);
 
 Route::get('/vaksin', [VaksinController::class, 'index'])->name('vaksin');
+Route::get('/vaksin/show', [VaksinController::class, 'show'])->name('vaksin.show');
 Route::post('/vaksin', [VaksinController::class, 'store']);
+Route::delete('/vaksin/{vaksin}', [VaksinController::class, 'destroy'])->name('vaksin.delete');
+Route::put('/vaksin/{vaksin}', [VaksinController::class, 'put'])->name('vaksin.put');
+Route::get('/vaksin/{vaksin}', [VaksinController::class, 'update'])->name('vaksin.update');

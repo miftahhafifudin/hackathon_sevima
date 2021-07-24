@@ -26,6 +26,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/vaksin">Daftar Vaksin</a>
               </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/vaksin/show">List Pendaftar</a>
+              </li>
           </ul>
           <form class="form-inline my-2 my-md-0">
             <input class="form-control" type="text" placeholder="Search">
