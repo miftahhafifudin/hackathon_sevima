@@ -14,12 +14,12 @@ use App\Http\Controllers\infoController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Auth::routes();
 
-Route::get('/', [infoController::class, 'index']);
+Route::get('/statistik', [infoController::class, 'index']);
 Route::get('/rumahsakit', [infoController::class, 'index2']);
 
