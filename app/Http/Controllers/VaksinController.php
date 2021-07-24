@@ -53,7 +53,7 @@ class VaksinController extends Controller
 
             $vaksin = Vaksin::create($request->all());
             
-            return view('vaksin.show');
+            return view('vaksin.index');
     }
 
     /**
@@ -121,5 +121,7 @@ class VaksinController extends Controller
     {
         $vaksins = Vaksin::find($vaksin);
         $vaksins->delete();
+    
+        return view('welcome');
     }
 }

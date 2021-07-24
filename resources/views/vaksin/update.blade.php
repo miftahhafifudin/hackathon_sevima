@@ -11,7 +11,7 @@
     </div>
     @endif
     
-    <form action="{{route('vaksin.put')}}" method="put" class="mb-4">
+    <form action="{{route('vaksin')}}" method="post" class="mb-4">
         @csrf
         <div class="form-group">
             <label for="nik">NIK</label>

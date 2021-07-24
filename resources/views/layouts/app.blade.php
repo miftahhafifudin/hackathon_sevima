@@ -30,9 +30,6 @@
                 <a class="nav-link" href="/vaksin/show">List Pendaftar</a>
               </li>
           </ul>
-          <form class="form-inline my-2 my-md-0">
-            <input class="form-control" type="text" placeholder="Search">
-          </form>
         </div>
       </nav>
     </head>
